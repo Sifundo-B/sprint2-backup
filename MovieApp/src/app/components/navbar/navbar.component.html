@@ -1,0 +1,19 @@
+<div class="navbar">
+  <div class="navbar-brand">
+    <h1 class="logo" (click)="navigateHome()">REELRELISH</h1>
+  </div>
+  <div class="search box">
+    <input type="text" placeholder="Search movies..." [(ngModel)]="searchQuery">
+    <button (click)="searchMovies()">Search</button>
+  </div>
+  <div *ngIf="isLoggedIn; else loginSection" class="nav-actions">
+    <span>Welcome back, {{ userEmail }}</span>
+    <button (click)="logout()">Logout</button>
+    <button routerLink="/watchlist">My Watchlist</button> <!-- Added My Watchlist button -->
+  </div>
+  <ng-template #loginSection>
+    <button routerLink="/watchlist">My Watchlist</button> <!-- Added My Watchlist button -->
+    <button routerLink="/register" class="register-btn">REGISTER</button>
+    <button routerLink="/login" class="login-btn">LOGIN</button>
+  </ng-template>
+</div>
